@@ -1,17 +1,18 @@
+a = [1, 9 ,2, 10, 3, 7, 4, 6]
 
-nombres = ['Violeta', 'Andino', 'Clemente','Javiera', 'Paula', 'Pía', 'Ray']
+# Utilizando map sumar uno a cada uno de los valores del array.
+a.map do |x|
+    x+=1
+end 
 
-#Obtener todos los elementos que excedan los 5 caracteres, utilizando .select .
-nombres.select{ |x| x.length>=5}
+# Utilizando map convertir todos los valores a float.
+a.map! {|x| x.to_f}
 
-#Utilizar .map para crear un arreglo con todos los nombres en minúscula.
-nombres.map {|x| x.downcase}
+# Utilizando select descartar todos los elementos menores a 5 en el array
+a.select{ |x| x>=5}
 
-#Utilizar .select para crear un arreglo con todos los nombres que empiecen con P.
-nombres.select{ |x| x[0]=='P'}
+# Utilizando inject sumar todos los valores del array.
+a.inject(0){ |sum, x| sum + x.to_f }
 
-#Utilizando .count , contar los elementos que empiecen con 'A', 'B' o 'C'.
-nombres.select{ |x| x[0]=='A' || x[0]=='B' || x[0]=='C'}
-
-#Utilizando .map , crear un arreglo único con la cantidad de letras que tiene cada nombre.
-nombres.map {|x| x.length}
+# Utilizando .count contar todos los elementos menores que 5.
+a.select{ |x| x<5}.count
